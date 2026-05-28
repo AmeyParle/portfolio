@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Amey Parle — Solutions Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:       #080d14;
+    --bg2:      #0d1520;
+    --bg3:      #111d2e;
+    --card:     #0f1c2d;
+    --border:   rgba(6,182,212,0.15);
+    --border2:  rgba(6,182,212,0.3);
+    --cyan:     #06b6d4;
+    --cyan2:    #67e8f9;
+    --text:     #e2e8f0;
+    --muted:    #64748b;
+    --muted2:   #94a3b8;
+    --mono:     'JetBrains Mono', monospace;
+    --sans:     'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── Grid noise texture overlay ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(6,182,212,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(6,182,212,0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── Nav ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 3rem;
+    background: rgba(8,13,20,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--cyan);
+    letter-spacing: 0.05em;
+  }
+
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted2);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--cyan); }
+
+  /* ── Sections ── */
+  section {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+  }
+
+  /* ── Hero ── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 6rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .hero-tag {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--cyan);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.1s;
+  }
+
+  .hero-name {
+    font-family: var(--sans);
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: #f1f5f9;
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.2s;
+  }
+
+  .hero-name span { color: var(--cyan); }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--muted2);
+    font-weight: 300;
+    max-width: 560px;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.35s;
+  }
+
+  .hero-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.5s;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.6rem 1.4rem;
+    border-radius: 4px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    background: var(--cyan);
+    color: #080d14;
+    font-weight: 700;
+    border: 1px solid var(--cyan);
+  }
+  .btn-primary:hover { background: var(--cyan2); border-color: var(--cyan2); }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--cyan);
+    border: 1px solid var(--border2);
+  }
+  .btn-ghost:hover { border-color: var(--cyan); background: rgba(6,182,212,0.06); }
+
+  /* ── Section header ── */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+  .section-num {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--cyan);
+  }
+  .section-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #f1f5f9;
+    letter-spacing: -0.01em;
+  }
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── About ── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  .about-text { color: var(--muted2); line-height: 1.8; }
+  .about-text p + p { margin-top: 1rem; }
+  .about-facts { display: flex; flex-direction: column; gap: 0.75rem; }
+  .fact-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    padding: 0.6rem 0.8rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+  }
+  .fact-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--cyan);
+    min-width: 60px;
+    letter-spacing: 0.06em;
+  }
+  .fact-val { font-size: 13px; color: var(--muted2); }
+
+  /* ── Skills ── */
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .skill-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.2rem 1.4rem;
+    transition: border-color 0.2s;
+  }
+  .skill-card:hover { border-color: var(--border2); }
+  .skill-cat {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--cyan);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.7rem;
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 0.2rem 0.55rem;
+    background: rgba(6,182,212,0.08);
+    border: 1px solid rgba(6,182,212,0.2);
+    border-radius: 3px;
+    color: var(--muted2);
+  }
+
+  /* ── Projects ── */
+  .projects-list { display: flex; flex-direction: column; gap: 1.25rem; }
+  .project-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem 1.8rem;
+    transition: border-color 0.25s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: var(--cyan);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .project-card:hover { border-color: var(--border2); transform: translateX(4px); }
+  .project-card:hover::before { opacity: 1; }
+
+  .project-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.6rem;
+  }
+  .project-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #f1f5f9;
+  }
+  .project-link {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--cyan);
+    text-decoration: none;
+    border: 1px solid var(--border2);
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .project-link:hover { background: rgba(6,182,212,0.1); }
+  .project-desc { color: var(--muted2); font-size: 14px; margin-bottom: 1rem; line-height: 1.7; }
+  .project-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+  .project-bullets li {
+    font-size: 13.5px;
+    color: var(--muted2);
+    padding-left: 1rem;
+    position: relative;
+    line-height: 1.6;
+  }
+  .project-bullets li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--cyan);
+    font-size: 10px;
+    top: 4px;
+  }
+  .project-stack { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+
+  /* ── Experience ── */
+  .exp-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem 1.8rem;
+  }
+  .exp-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.25rem;
+  }
+  .exp-title { font-size: 1rem; font-weight: 600; color: #f1f5f9; }
+  .exp-date { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+  .exp-org { font-size: 13px; color: var(--cyan); margin-bottom: 0.8rem; }
+  .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+  .exp-bullets li {
+    font-size: 13.5px;
+    color: var(--muted2);
+    padding-left: 1rem;
+    position: relative;
+    line-height: 1.6;
+  }
+  .exp-bullets li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--cyan);
+    font-size: 10px;
+    top: 4px;
+  }
+
+  /* ── Publication ── */
+  .pub-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem 1.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+  .pub-title { font-size: 0.95rem; font-weight: 500; color: #f1f5f9; margin-bottom: 0.3rem; }
+  .pub-meta { font-size: 13px; color: var(--muted); }
+  .pub-link {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--cyan);
+    text-decoration: none;
+    border: 1px solid var(--border2);
+    padding: 0.35rem 0.8rem;
+    border-radius: 3px;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+  .pub-link:hover { background: rgba(6,182,212,0.1); }
+
+  /* ── Education ── */
+  .edu-list { display: flex; flex-direction: column; gap: 1rem; }
+  .edu-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.2rem 1.6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .edu-deg { font-size: 0.95rem; font-weight: 500; color: #f1f5f9; }
+  .edu-school { font-size: 13px; color: var(--cyan); margin-top: 2px; }
+  .edu-right { text-align: right; }
+  .edu-date { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+  .edu-gpa { font-family: var(--mono); font-size: 12px; color: var(--muted2); margin-top: 2px; }
+
+  /* ── Contact ── */
+  .contact-inner {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+  .contact-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--cyan);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+  .contact-heading {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #f1f5f9;
+    margin-bottom: 1rem;
+  }
+  .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+
+  /* ── Footer ── */
+  footer {
+    position: relative; z-index: 1;
+    text-align: center;
+    padding: 2rem;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+  }
+
+  /* ── Animations ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── Responsive ── */
+  @media (max-width: 680px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.2rem; }
+    section { padding: 4rem 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .pub-card { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .edu-card { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+    .edu-right { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">amey@portfolio:~$</div>
+  <ul class="nav-links">
+    <li><a href="#about">about</a></li>
+    <li><a href="#skills">skills</a></li>
+    <li><a href="#projects">projects</a></li>
+    <li><a href="#experience">experience</a></li>
+    <li><a href="#contact">contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <p class="hero-tag">// solutions engineer &amp; backend engineer</p>
+  <h1 class="hero-name">Amey<br/><span>Parle.</span></h1>
+  <p class="hero-sub">
+    M.S. Computer Science, Indiana University (May 2026). I build cloud infrastructure,
+    APIs, and security systems — and translate them into demos, docs, and integration
+    guidance for customers and developers.
+  </p>
+  <div class="hero-links">
+    <a class="btn btn-primary" href="https://github.com/AmeyParle" target="_blank">GitHub ↗</a>
+    <a class="btn btn-ghost" href="https://linkedin.com/in/amey-parle" target="_blank">LinkedIn ↗</a>
+    <a class="btn btn-ghost" href="mailto:ameyparle@gmail.com">ameyparle@gmail.com</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header reveal">
+    <span class="section-num">01.</span>
+    <h2 class="section-title">About</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="about-grid reveal">
+    <div class="about-text">
+      <p>
+        I'm a CS grad with a background in backend engineering and Azure cloud infrastructure,
+        targeting Solutions Engineer and ASE roles where I can bridge technical depth with
+        customer-facing communication.
+      </p>
+      <p>
+        My work spans REST API design (OpenAPI/Swagger), zero-trust network architecture
+        (hub-spoke, WAF, VNet segmentation), and open-source protocol contributions. I care
+        deeply about making complex systems understandable — through runnable examples,
+        reference architectures, and clear documentation.
+      </p>
+      <p>
+        Outside of code, I led member services and real-time incident coordination at IU
+        RecSports — the same calm troubleshooting and consultative communication I bring
+        to technical support and pre-sales work.
+      </p>
+    </div>
+    <div class="about-facts">
+      <div class="fact-row"><span class="fact-label">degree</span><span class="fact-val">M.S. Computer Science, IU Bloomington</span></div>
+      <div class="fact-row"><span class="fact-label">gpa</span><span class="fact-val">3.6 / 4.0</span></div>
+      <div class="fact-row"><span class="fact-label">grad</span><span class="fact-val">May 2026</span></div>
+      <div class="fact-row"><span class="fact-label">focus</span><span class="fact-val">Cloud Networking · Security Infra · APIs</span></div>
+      <div class="fact-row"><span class="fact-label">target</span><span class="fact-val">ASE / Solutions Engineer / Impl. Engineer</span></div>
+      <div class="fact-row"><span class="fact-label">open to</span><span class="fact-val">Relocate anywhere in the US</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header reveal">
+    <span class="section-num">02.</span>
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="skills-grid reveal">
+    <div class="skill-card">
+      <div class="skill-cat">Networking</div>
+      <div class="skill-tags">
+        <span class="tag">VNet Segmentation</span>
+        <span class="tag">NSGs</span>
+        <span class="tag">App Gateway / WAF v2</span>
+        <span class="tag">Hub-Spoke</span>
+        <span class="tag">Zero-Trust Ingress</span>
+        <span class="tag">TCP/IP</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-cat">Cloud &amp; DevOps</div>
+      <div class="skill-tags">
+        <span class="tag">Azure</span>
+        <span class="tag">Terraform</span>
+        <span class="tag">Docker</span>
+        <span class="tag">GitHub Actions</span>
+        <span class="tag">CI/CD</span>
+        <span class="tag">VM Scale Sets</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-cat">Backend &amp; APIs</div>
+      <div class="skill-tags">
+        <span class="tag">Node.js</span>
+        <span class="tag">Express.js</span>
+        <span class="tag">REST</span>
+        <span class="tag">OpenAPI / Swagger</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">Prisma ORM</span>
+        <span class="tag">JWT</span>
+        <span class="tag">RBAC</span>
+        <span class="tag">Zod</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-cat">Languages &amp; AI</div>
+      <div class="skill-tags">
+        <span class="tag">Python</span>
+        <span class="tag">JavaScript (ES6+)</span>
+        <span class="tag">SQL</span>
+        <span class="tag">Bash</span>
+        <span class="tag">LLM API Integration</span>
+        <span class="tag">Prompt Versioning</span>
+        <span class="tag">Quality Eval Pipelines</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header reveal">
+    <span class="section-num">03.</span>
+    <h2 class="section-title">Projects</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="projects-list">
+
+    <div class="project-card reveal">
+      <div class="project-top">
+        <span class="project-name">Private Edge Gateway</span>
+        <a class="project-link" href="https://github.com/AmeyParle/private-edge-gateway" target="_blank">GitHub ↗</a>
+      </div>
+      <ul class="project-bullets">
+        <li>Deployed 21 Terraform-managed resources in a hub-and-spoke architecture (App Gateway/WAF v2, Azure Firewall, private VM Scale Set, segmented VNets, NSGs) — enforced zero-trust ingress to private backends with zero public IPs.</li>
+        <li>Simulated backend health degradation and documented incident-recovery steps, validating ingress and monitoring behavior under failure as a reusable enterprise reference architecture.</li>
+      </ul>
+      <div class="project-stack">
+        <span class="tag">Terraform</span><span class="tag">Azure</span><span class="tag">App Gateway</span><span class="tag">WAF v2</span><span class="tag">Hub-Spoke</span><span class="tag">Zero-Trust</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-top">
+        <span class="project-name">IncidentHub</span>
+        <a class="project-link" href="https://github.com/AmeyParle/incidenthub-api" target="_blank">GitHub ↗</a>
+      </div>
+      <ul class="project-bullets">
+        <li>Built a 21-endpoint incident management API with JWT auth, three-tier RBAC, Zod input validation, per-user rate limiting, and OpenAPI/Swagger docs deployed as a live self-service developer reference.</li>
+        <li>Integrated LLM ticket analysis (Groq/OpenAI-compatible) with structured summarization and resolution playbook generation, backed by database-driven prompt versioning; 20 integration tests with CI via GitHub Actions.</li>
+      </ul>
+      <div class="project-stack">
+        <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">PostgreSQL</span><span class="tag">Prisma</span><span class="tag">JWT</span><span class="tag">Zod</span><span class="tag">Groq API</span><span class="tag">Jest</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-top">
+        <span class="project-name">NotifyHub</span>
+        <a class="project-link" href="https://github.com/AmeyParle/notifyhub-api" target="_blank">GitHub ↗</a>
+      </div>
+      <ul class="project-bullets">
+        <li>Architected a reusable event-driven notification service (4 endpoints, health/readiness probes) as a drop-in component with zero producer-side changes; secured writes with API key verification and a generic schema supporting filtering by recipient, type, source, and read status.</li>
+      </ul>
+      <div class="project-stack">
+        <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">PostgreSQL</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-top">
+        <span class="project-name">TRAIL Protocol — Open Source Contributor</span>
+        <a class="project-link" href="https://github.com/trailprotocol/trail-did-method" target="_blank">GitHub ↗</a>
+      </div>
+      <ul class="project-bullets">
+        <li>Designed an evidence-weighted trust-scoring model for AI-agent identities, improving Sybil-attack resistance over naive count-based scoring; backed by automated correctness tests.</li>
+        <li>Built DID infrastructure (registry, resolver, verification pipeline) with signed-document checks — directly analogous to digital identity verification in enterprise access-control systems.</li>
+        <li>Authored runnable JS examples and developer-friendly documentation translating cryptographic primitives into onboarding guides, accelerating contributor ramp-up.</li>
+      </ul>
+      <div class="project-stack">
+        <span class="tag">JavaScript</span><span class="tag">DID</span><span class="tag">Identity</span><span class="tag">Trust Scoring</span><span class="tag">Access Control</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header reveal">
+    <span class="section-num">04.</span>
+    <h2 class="section-title">Experience</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="exp-card reveal">
+    <div class="exp-top">
+      <span class="exp-title">Member Services Lead</span>
+      <span class="exp-date">Dec 2025 – May 2026</span>
+    </div>
+    <div class="exp-org">IU RecSports, Indiana University Bloomington</div>
+    <ul class="exp-bullets">
+      <li>Advised members on facility plans through consultative needs-matching, practicing clear communication central to guiding customers through technical decisions.</li>
+      <li>Coordinated risk-management incidents and evacuations over radio under pressure, demonstrating calm real-time troubleshooting that front-line technical support depends on.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- PUBLICATION -->
+<section id="publication">
+  <div class="section-header reveal">
+    <span class="section-num">05.</span>
+    <h2 class="section-title">Publication</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="pub-card reveal">
+    <div>
+      <div class="pub-title">YogaWise: Real-Time Yoga Tracking with TensorFlow MoveNet</div>
+      <div class="pub-meta">ICC-ROBINS 2024 &nbsp;·&nbsp; May 2024 &nbsp;·&nbsp; DOI: 10.1109/ICCROBINS60238.2024.10534004</div>
+    </div>
+    <a class="pub-link" href="https://ieeexplore.ieee.org/document/10534004" target="_blank">IEEE ↗</a>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-header reveal">
+    <span class="section-num">06.</span>
+    <h2 class="section-title">Education</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="edu-list reveal">
+    <div class="edu-card">
+      <div>
+        <div class="edu-deg">M.S. Computer Science</div>
+        <div class="edu-school">Indiana University Bloomington</div>
+      </div>
+      <div class="edu-right">
+        <div class="edu-date">Aug 2024 – May 2026</div>
+        <div class="edu-gpa">GPA: 3.6 / 4.0</div>
+      </div>
+    </div>
+    <div class="edu-card">
+      <div>
+        <div class="edu-deg">B.E. Information Technology</div>
+        <div class="edu-school">Vidyalankar Institute of Technology, Mumbai</div>
+      </div>
+      <div class="edu-right">
+        <div class="edu-date">Jun 2020 – May 2024</div>
+        <div class="edu-gpa">CGPA: 9.14 / 10</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner reveal">
+    <div class="contact-label">// get in touch</div>
+    <div class="contact-heading">Let's connect.</div>
+    <p style="color:var(--muted2); max-width:440px; margin: 0 auto; font-size:14px;">
+      Open to ASE, Solutions Engineer, and Implementation Engineer roles. Willing to relocate anywhere in the US.
+    </p>
+    <div class="contact-links">
+      <a class="btn btn-primary" href="mailto:ameyparle@gmail.com">ameyparle@gmail.com</a>
+      <a class="btn btn-ghost" href="https://linkedin.com/in/amey-parle" target="_blank">LinkedIn ↗</a>
+      <a class="btn btn-ghost" href="https://github.com/AmeyParle" target="_blank">GitHub ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>Amey Parle &nbsp;·&nbsp; Built from scratch &nbsp;·&nbsp; 2026</span>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
