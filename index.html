@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Amey Parle — Solutions Engineer</title>
+<title>Amey Parle — Backend Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
@@ -290,6 +290,15 @@
     font-weight: 600;
     color: #f1f5f9;
   }
+  .project-badge {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--cyan);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
   .project-link {
     font-family: var(--mono);
     font-size: 11px;
@@ -445,6 +454,11 @@
   }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
+  @media (prefers-reduced-motion: reduce) {
+    .hero-tag, .hero-name, .hero-sub, .hero-links { animation: none; opacity: 1; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
   /* ── Responsive ── */
   @media (max-width: 680px) {
     nav { padding: 1rem 1.5rem; }
@@ -465,24 +479,25 @@
   <ul class="nav-links">
     <li><a href="#about">about</a></li>
     <li><a href="#skills">skills</a></li>
+    <li><a href="#opensource">open source</a></li>
     <li><a href="#projects">projects</a></li>
-    <li><a href="#experience">experience</a></li>
     <li><a href="#contact">contact</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
-  <p class="hero-tag">// solutions engineer &amp; backend engineer</p>
+  <p class="hero-tag">// backend engineer · identity &amp; trust infrastructure</p>
   <h1 class="hero-name">Amey<br/><span>Parle.</span></h1>
   <p class="hero-sub">
-    M.S. Computer Science, Indiana University (May 2026). I build cloud infrastructure,
-    APIs, and security systems — and translate them into demos, docs, and integration
-    guidance for customers and developers.
+    M.S. Computer Science, Indiana University (May 2026). I build backend systems,
+    APIs, and cloud infrastructure — and I'm the first external contributor to a
+    W3C-track decentralized identity protocol for AI agents, with a co-authored
+    spec section merged in v1.3.0.
   </p>
   <div class="hero-links">
-    <a class="btn btn-primary" href="https://github.com/AmeyParle" target="_blank">GitHub ↗</a>
-    <a class="btn btn-ghost" href="https://linkedin.com/in/amey-parle" target="_blank">LinkedIn ↗</a>
+    <a class="btn btn-primary" href="https://github.com/AmeyParle" target="_blank" rel="noopener">GitHub ↗</a>
+    <a class="btn btn-ghost" href="https://linkedin.com/in/amey-parle" target="_blank" rel="noopener">LinkedIn ↗</a>
     <a class="btn btn-ghost" href="mailto:ameyparle@gmail.com">ameyparle@gmail.com</a>
   </div>
 </section>
@@ -497,29 +512,31 @@
   <div class="about-grid reveal">
     <div class="about-text">
       <p>
-        I'm a CS grad with a background in backend engineering and Azure cloud infrastructure,
-        targeting Solutions Engineer and ASE roles where I can bridge technical depth with
-        customer-facing communication.
+        I'm a backend engineer working at the intersection of APIs, cloud infrastructure,
+        and digital identity. My base is broad — Node.js/TypeScript services, PostgreSQL,
+        Azure, Terraform — and my spike is deep: cryptographic identity for AI agents,
+        where I've contributed at the specification level, not just the code level.
       </p>
       <p>
-        My work spans REST API design (OpenAPI/Swagger), zero-trust network architecture
-        (hub-spoke, WAF, VNet segmentation), and open-source protocol contributions. I care
-        deeply about making complex systems understandable — through runnable examples,
-        reference architectures, and clear documentation.
+        As the first external contributor to the TRAIL Protocol (did:trail), I co-authored
+        §5.4.5 BindingProofCredential — the mechanism by which an AI agent cryptographically
+        proves which human or organization it acts for — merged into v1.3.0 along with my
+        reference implementation, verification algorithm, and signed test fixtures. I've also
+        had a Terraform fix merged upstream into Microsoft's official Azure Verified Modules.
       </p>
       <p>
-        Outside of code, I led member services and real-time incident coordination at IU
-        RecSports — the same calm troubleshooting and consultative communication I bring
-        to technical support and pre-sales work.
+        I care about the unglamorous parts that make systems trustworthy: input validation,
+        documentation, integration tests, and specs precise enough that a stranger can
+        implement them.
       </p>
     </div>
     <div class="about-facts">
       <div class="fact-row"><span class="fact-label">degree</span><span class="fact-val">M.S. Computer Science, IU Bloomington</span></div>
-      <div class="fact-row"><span class="fact-label">gpa</span><span class="fact-val">3.6 / 4.0</span></div>
+      <div class="fact-row"><span class="fact-label">gpa</span><span class="fact-val">3.7 / 4.0</span></div>
       <div class="fact-row"><span class="fact-label">grad</span><span class="fact-val">May 2026</span></div>
-      <div class="fact-row"><span class="fact-label">focus</span><span class="fact-val">Cloud Networking · Security Infra · APIs</span></div>
-      <div class="fact-row"><span class="fact-label">target</span><span class="fact-val">ASE / Solutions Engineer / Impl. Engineer</span></div>
-      <div class="fact-row"><span class="fact-label">open to</span><span class="fact-val">Relocate anywhere in the US</span></div>
+      <div class="fact-row"><span class="fact-label">focus</span><span class="fact-val">Backend APIs · Identity Infra · Cloud/IaC</span></div>
+      <div class="fact-row"><span class="fact-label">target</span><span class="fact-val">Backend SWE / Implementation Eng. / FDE</span></div>
+      <div class="fact-row"><span class="fact-label">open to</span><span class="fact-val">Indianapolis area · Remote · Relocation</span></div>
     </div>
   </div>
 </section>
@@ -533,14 +550,30 @@
   </div>
   <div class="skills-grid reveal">
     <div class="skill-card">
-      <div class="skill-cat">Networking</div>
+      <div class="skill-cat">Backend &amp; APIs</div>
       <div class="skill-tags">
-        <span class="tag">VNet Segmentation</span>
-        <span class="tag">NSGs</span>
-        <span class="tag">App Gateway / WAF v2</span>
-        <span class="tag">Hub-Spoke</span>
-        <span class="tag">Zero-Trust Ingress</span>
-        <span class="tag">TCP/IP</span>
+        <span class="tag">Node.js</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">Express.js</span>
+        <span class="tag">REST</span>
+        <span class="tag">OpenAPI / Swagger</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">Prisma ORM</span>
+        <span class="tag">Microservices</span>
+        <span class="tag">Event-Driven</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-cat">Identity &amp; Security</div>
+      <div class="skill-tags">
+        <span class="tag">DIDs</span>
+        <span class="tag">Verifiable Credentials</span>
+        <span class="tag">Signature Verification</span>
+        <span class="tag">JWT</span>
+        <span class="tag">RBAC</span>
+        <span class="tag">Zero-Trust</span>
+        <span class="tag">Input Validation</span>
+        <span class="tag">Rate Limiting</span>
       </div>
     </div>
     <div class="skill-card">
@@ -551,21 +584,8 @@
         <span class="tag">Docker</span>
         <span class="tag">GitHub Actions</span>
         <span class="tag">CI/CD</span>
-        <span class="tag">VM Scale Sets</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-cat">Backend &amp; APIs</div>
-      <div class="skill-tags">
-        <span class="tag">Node.js</span>
-        <span class="tag">Express.js</span>
-        <span class="tag">REST</span>
-        <span class="tag">OpenAPI / Swagger</span>
-        <span class="tag">PostgreSQL</span>
-        <span class="tag">Prisma ORM</span>
-        <span class="tag">JWT</span>
-        <span class="tag">RBAC</span>
-        <span class="tag">Zod</span>
+        <span class="tag">App Gateway / WAF</span>
+        <span class="tag">Hub-Spoke Networking</span>
       </div>
     </div>
     <div class="skill-card">
@@ -583,10 +603,62 @@
   </div>
 </section>
 
+<!-- OPEN SOURCE -->
+<section id="opensource">
+  <div class="section-header reveal">
+    <span class="section-num">03.</span>
+    <h2 class="section-title">Open Source</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="projects-list">
+
+    <div class="project-card reveal">
+      <div class="project-top">
+        <div>
+          <span class="project-badge">First External Contributor · Spec Co-Author</span>
+          <span class="project-name">TRAIL Protocol (did:trail)</span>
+        </div>
+        <a class="project-link" href="https://github.com/trailprotocol/trail-did-method" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+      <p class="project-desc">
+        A decentralized identity protocol for AI agents, registered in the W3C DID Extensions
+        Registry. When an agent acts on a company's behalf, TRAIL is how you verify which
+        human or organization it's bound to.
+      </p>
+      <ul class="project-bullets">
+        <li>Authored §5.4.5 BindingProofCredential — the cryptographic specification for binding an AI agent to its controlling entity — merged into TRAIL Protocol v1.3.0 (spec PR + implementation PR).</li>
+        <li>Shipped the reference implementation: credential shape, verification algorithm, a ten-test suite, and six cryptographically signed fixtures.</li>
+        <li>Built earlier DID infrastructure — registry, resolver, signed-document verification pipeline, and an evidence-weighted trust-scoring model for Sybil resistance.</li>
+        <li>Collaborated async with the protocol's maintainer in Germany through spec review and merged PRs.</li>
+      </ul>
+      <div class="project-stack">
+        <span class="tag">Node.js</span><span class="tag">Cryptography</span><span class="tag">DIDs</span><span class="tag">Verifiable Credentials</span><span class="tag">W3C DID Registry</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-top">
+        <div>
+          <span class="project-badge">Merged Upstream · Official v0.5.0 Release</span>
+          <span class="project-name">Microsoft Azure Verified Modules</span>
+        </div>
+        <a class="project-link" href="https://github.com/Azure/terraform-azurerm-avm-res-app-managedenvironment" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+      <ul class="project-bullets">
+        <li>Root-caused and fixed perpetual Terraform state drift in ACA Managed Environments; PR cherry-picked with authorship preserved into Microsoft's official consolidated v0.5.0 release.</li>
+      </ul>
+      <div class="project-stack">
+        <span class="tag">Terraform</span><span class="tag">Azure</span><span class="tag">IaC</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- PROJECTS -->
 <section id="projects">
   <div class="section-header reveal">
-    <span class="section-num">03.</span>
+    <span class="section-num">04.</span>
     <h2 class="section-title">Projects</h2>
     <div class="section-line"></div>
   </div>
@@ -594,26 +666,12 @@
 
     <div class="project-card reveal">
       <div class="project-top">
-        <span class="project-name">Private Edge Gateway</span>
-        <a class="project-link" href="https://github.com/AmeyParle/private-edge-gateway" target="_blank">GitHub ↗</a>
-      </div>
-      <ul class="project-bullets">
-        <li>Deployed 21 Terraform-managed resources in a hub-and-spoke architecture (App Gateway/WAF v2, Azure Firewall, private VM Scale Set, segmented VNets, NSGs) — enforced zero-trust ingress to private backends with zero public IPs.</li>
-        <li>Simulated backend health degradation and documented incident-recovery steps, validating ingress and monitoring behavior under failure as a reusable enterprise reference architecture.</li>
-      </ul>
-      <div class="project-stack">
-        <span class="tag">Terraform</span><span class="tag">Azure</span><span class="tag">App Gateway</span><span class="tag">WAF v2</span><span class="tag">Hub-Spoke</span><span class="tag">Zero-Trust</span>
-      </div>
-    </div>
-
-    <div class="project-card reveal">
-      <div class="project-top">
         <span class="project-name">IncidentHub</span>
-        <a class="project-link" href="https://github.com/AmeyParle/incidenthub-api" target="_blank">GitHub ↗</a>
+        <a class="project-link" href="https://github.com/AmeyParle/incidenthub-api" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
       <ul class="project-bullets">
-        <li>Built a 21-endpoint incident management API with JWT auth, three-tier RBAC, Zod input validation, per-user rate limiting, and OpenAPI/Swagger docs deployed as a live self-service developer reference.</li>
-        <li>Integrated LLM ticket analysis (Groq/OpenAI-compatible) with structured summarization and resolution playbook generation, backed by database-driven prompt versioning; 20 integration tests with CI via GitHub Actions.</li>
+        <li>Built a production multi-tenant incident management API — 21 documented endpoints, JWT auth, three-tier RBAC, Zod input validation, per-user rate limiting, and an 843-line OpenAPI/Swagger spec deployed as a live developer reference.</li>
+        <li>Integrated LLM ticket analysis with structured summarization and resolution-playbook generation, backed by database-driven prompt versioning, A/B testing, and an automated quality-evaluation pipeline; 20 integration tests with CI via GitHub Actions.</li>
       </ul>
       <div class="project-stack">
         <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">PostgreSQL</span><span class="tag">Prisma</span><span class="tag">JWT</span><span class="tag">Zod</span><span class="tag">Groq API</span><span class="tag">Jest</span>
@@ -622,29 +680,28 @@
 
     <div class="project-card reveal">
       <div class="project-top">
-        <span class="project-name">NotifyHub</span>
-        <a class="project-link" href="https://github.com/AmeyParle/notifyhub-api" target="_blank">GitHub ↗</a>
+        <span class="project-name">Private Edge Gateway</span>
+        <a class="project-link" href="https://github.com/AmeyParle/private-edge-gateway" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
       <ul class="project-bullets">
-        <li>Architected a reusable event-driven notification service (4 endpoints, health/readiness probes) as a drop-in component with zero producer-side changes; secured writes with API key verification and a generic schema supporting filtering by recipient, type, source, and read status.</li>
+        <li>Architected a 21-resource Azure hub-and-spoke reference architecture (App Gateway/WAF v2, Azure Firewall, private VM Scale Set, segmented VNets, NSGs) in Terraform — zero-trust ingress, zero public IPs.</li>
+        <li>Simulated backend health degradation and authored incident-recovery runbooks, validating ingress and monitoring behavior under failure.</li>
       </ul>
       <div class="project-stack">
-        <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">PostgreSQL</span>
+        <span class="tag">Terraform</span><span class="tag">Azure</span><span class="tag">App Gateway</span><span class="tag">WAF v2</span><span class="tag">Hub-Spoke</span><span class="tag">Zero-Trust</span>
       </div>
     </div>
 
     <div class="project-card reveal">
       <div class="project-top">
-        <span class="project-name">TRAIL Protocol — Open Source Contributor</span>
-        <a class="project-link" href="https://github.com/trailprotocol/trail-did-method" target="_blank">GitHub ↗</a>
+        <span class="project-name">NotifyHub</span>
+        <a class="project-link" href="https://github.com/AmeyParle/notifyhub-api" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
       <ul class="project-bullets">
-        <li>Designed an evidence-weighted trust-scoring model for AI-agent identities, improving Sybil-attack resistance over naive count-based scoring; backed by automated correctness tests.</li>
-        <li>Built DID infrastructure (registry, resolver, verification pipeline) with signed-document checks — directly analogous to digital identity verification in enterprise access-control systems.</li>
-        <li>Authored runnable JS examples and developer-friendly documentation translating cryptographic primitives into onboarding guides, accelerating contributor ramp-up.</li>
+        <li>Designed a reusable event-driven notification microservice — 4 endpoints, generic filterable schema, API-key auth, Zod validation, health/readiness probes — containerized with Docker as a drop-in component requiring zero producer-side changes.</li>
       </ul>
       <div class="project-stack">
-        <span class="tag">JavaScript</span><span class="tag">DID</span><span class="tag">Identity</span><span class="tag">Trust Scoring</span><span class="tag">Access Control</span>
+        <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">PostgreSQL</span><span class="tag">Prisma</span><span class="tag">Docker</span>
       </div>
     </div>
 
@@ -654,7 +711,7 @@
 <!-- EXPERIENCE -->
 <section id="experience">
   <div class="section-header reveal">
-    <span class="section-num">04.</span>
+    <span class="section-num">05.</span>
     <h2 class="section-title">Experience</h2>
     <div class="section-line"></div>
   </div>
@@ -665,8 +722,8 @@
     </div>
     <div class="exp-org">IU RecSports, Indiana University Bloomington</div>
     <ul class="exp-bullets">
-      <li>Advised members on facility plans through consultative needs-matching, practicing clear communication central to guiding customers through technical decisions.</li>
-      <li>Coordinated risk-management incidents and evacuations over radio under pressure, demonstrating calm real-time troubleshooting that front-line technical support depends on.</li>
+      <li>Led on-shift facility operations in a high-traffic environment, ensuring adherence to documented operational procedures and incident-response protocols.</li>
+      <li>Coordinated risk-management incidents and live evacuations via radio under time pressure, maintaining calm communication across multi-person teams.</li>
     </ul>
   </div>
 </section>
@@ -674,23 +731,23 @@
 <!-- PUBLICATION -->
 <section id="publication">
   <div class="section-header reveal">
-    <span class="section-num">05.</span>
+    <span class="section-num">06.</span>
     <h2 class="section-title">Publication</h2>
     <div class="section-line"></div>
   </div>
   <div class="pub-card reveal">
     <div>
       <div class="pub-title">YogaWise: Real-Time Yoga Tracking with TensorFlow MoveNet</div>
-      <div class="pub-meta">ICC-ROBINS 2024 &nbsp;·&nbsp; May 2024 &nbsp;·&nbsp; DOI: 10.1109/ICCROBINS60238.2024.10534004</div>
+      <div class="pub-meta">IEEE ICC-ROBINS 2024 &nbsp;·&nbsp; May 2024 &nbsp;·&nbsp; DOI: 10.1109/ICCROBINS60238.2024.10534004</div>
     </div>
-    <a class="pub-link" href="https://ieeexplore.ieee.org/document/10534004" target="_blank">IEEE ↗</a>
+    <a class="pub-link" href="https://ieeexplore.ieee.org/document/10534004" target="_blank" rel="noopener">IEEE ↗</a>
   </div>
 </section>
 
 <!-- EDUCATION -->
 <section id="education">
   <div class="section-header reveal">
-    <span class="section-num">06.</span>
+    <span class="section-num">07.</span>
     <h2 class="section-title">Education</h2>
     <div class="section-line"></div>
   </div>
@@ -702,7 +759,7 @@
       </div>
       <div class="edu-right">
         <div class="edu-date">Aug 2024 – May 2026</div>
-        <div class="edu-gpa">GPA: 3.6 / 4.0</div>
+        <div class="edu-gpa">GPA: 3.7 / 4.0</div>
       </div>
     </div>
     <div class="edu-card">
@@ -711,7 +768,7 @@
         <div class="edu-school">Vidyalankar Institute of Technology, Mumbai</div>
       </div>
       <div class="edu-right">
-        <div class="edu-date">Jun 2020 – May 2024</div>
+        <div class="edu-date">Aug 2020 – May 2024</div>
         <div class="edu-gpa">CGPA: 9.14 / 10</div>
       </div>
     </div>
@@ -724,12 +781,13 @@
     <div class="contact-label">// get in touch</div>
     <div class="contact-heading">Let's connect.</div>
     <p style="color:var(--muted2); max-width:440px; margin: 0 auto; font-size:14px;">
-      Open to ASE, Solutions Engineer, and Implementation Engineer roles. Willing to relocate anywhere in the US.
+      Open to Backend SWE, Implementation Engineer, and Forward-Deployed Engineer roles.
+      Indianapolis area, remote, or relocation.
     </p>
     <div class="contact-links">
       <a class="btn btn-primary" href="mailto:ameyparle@gmail.com">ameyparle@gmail.com</a>
-      <a class="btn btn-ghost" href="https://linkedin.com/in/amey-parle" target="_blank">LinkedIn ↗</a>
-      <a class="btn btn-ghost" href="https://github.com/AmeyParle" target="_blank">GitHub ↗</a>
+      <a class="btn btn-ghost" href="https://linkedin.com/in/amey-parle" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn btn-ghost" href="https://github.com/AmeyParle" target="_blank" rel="noopener">GitHub ↗</a>
     </div>
   </div>
 </section>
