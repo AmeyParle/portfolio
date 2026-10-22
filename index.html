@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Amey Parle — Backend Engineer</title>
+<title>Amey Parle — AI &amp; Data Governance</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
@@ -478,8 +478,8 @@
   <div class="nav-logo">amey@portfolio:~$</div>
   <ul class="nav-links">
     <li><a href="#about">about</a></li>
-    <li><a href="#skills">skills</a></li>
-    <li><a href="#opensource">open source</a></li>
+    <li><a href="#governance">governance</a></li>
+    <li><a href="#standards">standards</a></li>
     <li><a href="#projects">projects</a></li>
     <li><a href="#contact">contact</a></li>
   </ul>
@@ -487,17 +487,18 @@
 
 <!-- HERO -->
 <section id="hero">
-  <p class="hero-tag">// backend engineer · identity &amp; trust infrastructure</p>
+  <p class="hero-tag">// AI &amp; data governance · agent identity · AI assurance</p>
   <h1 class="hero-name">Amey<br/><span>Parle.</span></h1>
   <p class="hero-sub">
-    M.S. Computer Science, Indiana University (May 2026). I build backend systems,
-    APIs, and cloud infrastructure — and I'm the first external contributor to a
-    W3C-track decentralized identity protocol for AI agents, with a co-authored
-    spec section merged in v1.3.0.
+    I work on how organizations prove what their AI systems did, and on whose authority,
+    and turn that into controls a bank can adopt and an examiner can test. Lead maintainer
+    of did:trail, a W3C-registered identity method for AI agents, and co-author of W3C text
+    on what an audit record can establish about an agent's actions.
   </p>
   <div class="hero-links">
-    <a class="btn btn-primary" href="https://github.com/AmeyParle" target="_blank" rel="noopener">GitHub ↗</a>
+    <a class="btn btn-primary" href="#governance">Governance portfolio ↓</a>
     <a class="btn btn-ghost" href="https://linkedin.com/in/amey-parle" target="_blank" rel="noopener">LinkedIn ↗</a>
+    <a class="btn btn-ghost" href="https://github.com/AmeyParle" target="_blank" rel="noopener">GitHub ↗</a>
     <a class="btn btn-ghost" href="mailto:ameyparle@gmail.com">ameyparle@gmail.com</a>
   </div>
 </section>
@@ -512,43 +513,142 @@
   <div class="about-grid reveal">
     <div class="about-text">
       <p>
-        I'm a backend engineer working at the intersection of APIs, cloud infrastructure,
-        and digital identity. My base is broad — Node.js/TypeScript services, PostgreSQL,
-        Azure, Terraform — and my spike is deep: cryptographic identity for AI agents,
-        where I've contributed at the specification level, not just the code level.
+        I'm moving into AI and data governance from the engineering side. My base is backend
+        and identity systems — Node.js/TypeScript, PostgreSQL, Azure, Terraform — and my spike
+        is deep: identity and audit evidence for AI agents, where I've contributed at the
+        specification level, not just the code level.
       </p>
       <p>
-        As the first external contributor to the TRAIL Protocol (did:trail), I co-authored
-        §5.4.5 BindingProofCredential — the mechanism by which an AI agent cryptographically
-        proves which human or organization it acts for — merged into v1.3.0 along with my
-        reference implementation, verification algorithm, and signed test fixtures. I've also
-        had a Terraform fix merged upstream into Microsoft's official Azure Verified Modules.
+        As lead maintainer of the TRAIL Protocol (did:trail), I authored §5.4.5
+        BindingProofCredential — the mechanism by which an AI agent cryptographically proves
+        which organization it acts for — merged into v1.3.0. In the W3C AI KR Community Group
+        I co-authored the section on when two independently produced records can be shown to
+        concern the same agent action, and my conformance vectors are merged into an IETF draft.
       </p>
       <p>
-        I care about the unglamorous parts that make systems trustworthy: input validation,
-        documentation, integration tests, and specs precise enough that a stranger can
-        implement them.
+        I care about the unglamorous parts that make systems trustworthy: inventories that are
+        actually complete, controls that produce evidence, and documentation precise enough
+        that a stranger can test it.
       </p>
     </div>
     <div class="about-facts">
       <div class="fact-row"><span class="fact-label">degree</span><span class="fact-val">M.S. Computer Science, IU Bloomington</span></div>
       <div class="fact-row"><span class="fact-label">gpa</span><span class="fact-val">3.7 / 4.0</span></div>
       <div class="fact-row"><span class="fact-label">grad</span><span class="fact-val">May 2026</span></div>
-      <div class="fact-row"><span class="fact-label">focus</span><span class="fact-val">Backend APIs · Identity Infra · Cloud/IaC</span></div>
-      <div class="fact-row"><span class="fact-label">target</span><span class="fact-val">Backend SWE / Implementation Eng. / FDE</span></div>
-      <div class="fact-row"><span class="fact-label">open to</span><span class="fact-val">Indianapolis area · Remote · Relocation</span></div>
+      <div class="fact-row"><span class="fact-label">focus</span><span class="fact-val">AI Governance · Agent Identity · Audit Evidence</span></div>
+      <div class="fact-row"><span class="fact-label">target</span><span class="fact-val">AI Governance · Model Risk · Data Governance</span></div>
+      <div class="fact-row"><span class="fact-label">open to</span><span class="fact-val">New York metro · Hybrid · Relocation</span></div>
     </div>
+  </div>
+</section>
+
+<!-- GOVERNANCE PORTFOLIO -->
+<section id="governance">
+  <div class="section-header reveal">
+    <span class="section-num">02.</span>
+    <h2 class="section-title">Governance Portfolio</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="about-text reveal" style="margin-bottom: 1.5rem;">
+    <p>
+      A governance program for Harbor Federal Bank, a fictional mid-size US bank, built against
+      real regulation (SR 26-2, NIST AI RMF, ISO/IEC 42001, the EU AI Act, ECOA/Reg B) and real
+      public data.
+    </p>
+  </div>
+  <div class="projects-list">
+
+    <div class="project-card reveal">
+      <div class="project-top">
+        <div>
+          <span class="project-badge">Framework · 26 Controls</span>
+          <span class="project-name">AI Agent Governance Control Framework</span>
+        </div>
+        <a class="project-link" href="harbor-federal/ai-agent-governance-framework.pdf" target="_blank" rel="noopener">PDF ↗</a>
+      </div>
+      <p class="project-desc">
+        SR 26-2, the 2026 bank model risk guidance, puts agentic AI outside its scope, so banks
+        have to build this governance themselves. The framework makes every agent known, owned,
+        bounded, supervised, auditable and stoppable.
+      </p>
+      <ul class="project-bullets">
+        <li>26 controls across six domains — inventory, identity and delegation, human oversight, testing, monitoring, incident response — each with its type, tiers and audit evidence, plus test procedures for key controls.</li>
+        <li>Risk tiering with autonomy levels and override rules, and proportionality by tier, from go-live approval rights to kill-switch testing.</li>
+        <li>Mapped to NIST AI RMF, ISO/IEC 42001, the EU AI Act and SR 26-2, with a gap analysis of where those frameworks are silent on agents.</li>
+        <li>Applied to a bank collections agent and checked against two real incidents: the Replit production-database deletion and Moffatt v. Air Canada.</li>
+      </ul>
+      <div class="project-stack">
+        <span class="tag">NIST AI RMF</span><span class="tag">ISO/IEC 42001</span><span class="tag">EU AI Act</span><span class="tag">SR 26-2</span><span class="tag">Agent Identity</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-top">
+        <div>
+          <span class="project-badge">In Progress · Publishing Oct 25</span>
+          <span class="project-name">Harbor Federal Labs</span>
+        </div>
+      </div>
+      <ul class="project-bullets">
+        <li>AI inventory and risk tiering for 10 banking use cases, from credit underwriting to an autonomous collections agent.</li>
+        <li>Fair-lending validation of a credit model: adverse impact ratio, demographic parity and equalized odds, with a severity-rated validation memo.</li>
+        <li>Data quality rules and a critical-data-element scorecard on public HMDA mortgage data.</li>
+      </ul>
+      <div class="project-stack">
+        <span class="tag">Model Risk</span><span class="tag">Fair Lending</span><span class="tag">Data Quality</span><span class="tag">Python</span><span class="tag">Fairlearn</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <!-- SKILLS -->
 <section id="skills">
   <div class="section-header reveal">
-    <span class="section-num">02.</span>
-    <h2 class="section-title">Technical Skills</h2>
+    <span class="section-num">03.</span>
+    <h2 class="section-title">Skills</h2>
     <div class="section-line"></div>
   </div>
   <div class="skills-grid reveal">
+    <div class="skill-card">
+      <div class="skill-cat">Governance &amp; Risk</div>
+      <div class="skill-tags">
+        <span class="tag">NIST AI RMF</span>
+        <span class="tag">ISO/IEC 42001</span>
+        <span class="tag">EU AI Act</span>
+        <span class="tag">SR 26-2</span>
+        <span class="tag">Model Inventory</span>
+        <span class="tag">Risk Tiering</span>
+        <span class="tag">Control Design</span>
+        <span class="tag">Control Testing</span>
+        <span class="tag">Data Quality</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-cat">Standards &amp; Assurance</div>
+      <div class="skill-tags">
+        <span class="tag">Audit Evidence</span>
+        <span class="tag">Conformance Testing</span>
+        <span class="tag">RFC 8785 / JCS</span>
+        <span class="tag">Tamper-Evident Logging</span>
+        <span class="tag">W3C</span>
+        <span class="tag">IETF</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-cat">Identity &amp; Security</div>
+      <div class="skill-tags">
+        <span class="tag">DIDs</span>
+        <span class="tag">Verifiable Credentials</span>
+        <span class="tag">Ed25519</span>
+        <span class="tag">StatusList2021</span>
+        <span class="tag">OAuth 2.0 / OIDC</span>
+        <span class="tag">Signature Verification</span>
+        <span class="tag">JWT</span>
+        <span class="tag">RBAC</span>
+        <span class="tag">Zero-Trust</span>
+      </div>
+    </div>
     <div class="skill-card">
       <div class="skill-cat">Backend &amp; APIs</div>
       <div class="skill-tags">
@@ -561,19 +661,6 @@
         <span class="tag">Prisma ORM</span>
         <span class="tag">Microservices</span>
         <span class="tag">Event-Driven</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-cat">Identity &amp; Security</div>
-      <div class="skill-tags">
-        <span class="tag">DIDs</span>
-        <span class="tag">Verifiable Credentials</span>
-        <span class="tag">Signature Verification</span>
-        <span class="tag">JWT</span>
-        <span class="tag">RBAC</span>
-        <span class="tag">Zero-Trust</span>
-        <span class="tag">Input Validation</span>
-        <span class="tag">Rate Limiting</span>
       </div>
     </div>
     <div class="skill-card">
@@ -596,18 +683,18 @@
         <span class="tag">SQL</span>
         <span class="tag">Bash</span>
         <span class="tag">LLM API Integration</span>
-        <span class="tag">Prompt Versioning</span>
-        <span class="tag">Quality Eval Pipelines</span>
+        <span class="tag">MCP</span>
+        <span class="tag">Tool-Calling Agents</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- OPEN SOURCE -->
-<section id="opensource">
+<!-- STANDARDS & OPEN SOURCE -->
+<section id="standards">
   <div class="section-header reveal">
-    <span class="section-num">03.</span>
-    <h2 class="section-title">Open Source</h2>
+    <span class="section-num">04.</span>
+    <h2 class="section-title">Standards &amp; Open Source</h2>
     <div class="section-line"></div>
   </div>
   <div class="projects-list">
@@ -615,7 +702,7 @@
     <div class="project-card reveal">
       <div class="project-top">
         <div>
-          <span class="project-badge">First External Contributor · Spec Co-Author</span>
+          <span class="project-badge">Lead Maintainer · W3C DID Extensions Registry</span>
           <span class="project-name">TRAIL Protocol (did:trail)</span>
         </div>
         <a class="project-link" href="https://github.com/trailprotocol/trail-did-method" target="_blank" rel="noopener">GitHub ↗</a>
@@ -623,16 +710,55 @@
       <p class="project-desc">
         A decentralized identity protocol for AI agents, registered in the W3C DID Extensions
         Registry. When an agent acts on a company's behalf, TRAIL is how you verify which
-        human or organization it's bound to.
+        organization it's bound to.
       </p>
       <ul class="project-bullets">
-        <li>Authored §5.4.5 BindingProofCredential — the cryptographic specification for binding an AI agent to its controlling entity — merged into TRAIL Protocol v1.3.0 (spec PR + implementation PR).</li>
-        <li>Shipped the reference implementation: credential shape, verification algorithm, a ten-test suite, and six cryptographically signed fixtures.</li>
-        <li>Built earlier DID infrastructure — registry, resolver, signed-document verification pipeline, and an evidence-weighted trust-scoring model for Sybil resistance.</li>
-        <li>Collaborated async with the protocol's maintainer in Germany through spec review and merged PRs.</li>
+        <li>Authored the §5.4.5 reciprocal BindingProofCredential and its TypeScript reference implementation — Ed25519 signatures, JCS Data Integrity proofs, StatusList2021 revocation, signed test vectors; 80 passing tests, merged into v1.3.0.</li>
+        <li>Drove a normative change to §14.5: the trust score moved from a float to an integer on 0–100 after I flagged that the signed payload could carry fractional values.</li>
+        <li>Set technical direction, review contributions, and hold npm publish rights on the @trailprotocol scope.</li>
       </ul>
       <div class="project-stack">
-        <span class="tag">Node.js</span><span class="tag">Cryptography</span><span class="tag">DIDs</span><span class="tag">Verifiable Credentials</span><span class="tag">W3C DID Registry</span>
+        <span class="tag">TypeScript</span><span class="tag">Ed25519</span><span class="tag">DIDs</span><span class="tag">Verifiable Credentials</span><span class="tag">W3C DID Registry</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-top">
+        <div>
+          <span class="project-badge">Co-Author · W3C Community Group · Sept 2026</span>
+          <span class="project-name">W3C AI KR CG Trust-Layer Specification</span>
+        </div>
+        <a class="project-link" href="https://github.com/w3c-cg/aikr/issues/10" target="_blank" rel="noopener">Issue #10 ↗</a>
+      </div>
+      <ul class="project-bullets">
+        <li>Co-authored §4.1 of the group's published draft: when two independently produced records can be shown to concern the same AI agent or action.</li>
+        <li>Contributed the comparison-semantics column of the trust-layer crosswalk, naming the four properties a profile must state for canonicalization to establish anything about subject identity.</li>
+        <li>Showed why a complete, faithful audit trail can still miss what happened: most agent systems record the action an agent declared, not the request that actually ran.</li>
+      </ul>
+      <div class="project-stack">
+        <span class="tag">W3C</span><span class="tag">Audit Evidence</span><span class="tag">AI Agents</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-top">
+        <div>
+          <span class="project-badge">Merged · IETF Draft Repo · Sept 2026</span>
+          <span class="project-name">RFC 8785 Conformance Vectors</span>
+        </div>
+        <a class="project-link" href="https://github.com/giskard09/draft-etcheverry-action-ref/tree/main/conformance/trail" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+      <p class="project-desc">
+        An independent author-set for JSON canonicalization comparison semantics, merged into the
+        draft-etcheverry-action-ref IETF draft repo. Zero-dependency verifier, 19 assertions.
+      </p>
+      <ul class="project-bullets">
+        <li>Unicode normalization fails closed: identical-looking identifiers canonicalize to different bytes, so a relying party sees a conflict that isn't there.</li>
+        <li>Integers above 2^53 fail open: two different values serialize identically, so a relying party sees a match that isn't there, and nothing in the record shows it.</li>
+        <li>Each vector states its failure mode, so the risk is machine-readable rather than left to prose.</li>
+      </ul>
+      <div class="project-stack">
+        <span class="tag">RFC 8785</span><span class="tag">JCS</span><span class="tag">Conformance Testing</span>
       </div>
     </div>
 
@@ -658,7 +784,7 @@
 <!-- PROJECTS -->
 <section id="projects">
   <div class="section-header reveal">
-    <span class="section-num">04.</span>
+    <span class="section-num">05.</span>
     <h2 class="section-title">Projects</h2>
     <div class="section-line"></div>
   </div>
@@ -666,15 +792,16 @@
 
     <div class="project-card reveal">
       <div class="project-top">
-        <span class="project-name">IncidentHub</span>
-        <a class="project-link" href="https://github.com/AmeyParle/incidenthub-api" target="_blank" rel="noopener">GitHub ↗</a>
+        <span class="project-name">Provable Agent Authority (trail-halo-poc)</span>
+        <a class="project-link" href="https://github.com/bkuan001/halo-record" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
       <ul class="project-bullets">
-        <li>Built a production multi-tenant incident management API — 21 documented endpoints, JWT auth, three-tier RBAC, Zod input validation, per-user rate limiting, and an 843-line OpenAPI/Swagger spec deployed as a live developer reference.</li>
-        <li>Integrated LLM ticket analysis with structured summarization and resolution-playbook generation, backed by database-driven prompt versioning, A/B testing, and an automated quality-evaluation pipeline; 20 integration tests with CI via GitHub Actions.</li>
+        <li>Every LLM tool call is gated by a verified reciprocal binding and an org-signed scope grant, then recorded into a tamper-evident hash chain signed by the agent.</li>
+        <li>Policy enforcement lives outside the agent process, so authorization holds even under prompt injection.</li>
+        <li>An adversarial suite covering tampered records, wrong-key signatures and forged grants exposed an issuer-pinning gap, which I then closed. Listed in halo-record Community Examples.</li>
       </ul>
       <div class="project-stack">
-        <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">PostgreSQL</span><span class="tag">Prisma</span><span class="tag">JWT</span><span class="tag">Zod</span><span class="tag">Groq API</span><span class="tag">Jest</span>
+        <span class="tag">TypeScript</span><span class="tag">DIDs</span><span class="tag">Hash Chains</span><span class="tag">Agent Authorization</span>
       </div>
     </div>
 
@@ -711,27 +838,40 @@
 <!-- EXPERIENCE -->
 <section id="experience">
   <div class="section-header reveal">
-    <span class="section-num">05.</span>
+    <span class="section-num">06.</span>
     <h2 class="section-title">Experience</h2>
     <div class="section-line"></div>
   </div>
-  <div class="exp-card reveal">
-    <div class="exp-top">
-      <span class="exp-title">Member Services Lead</span>
-      <span class="exp-date">Dec 2025 – May 2026</span>
+  <div class="projects-list">
+    <div class="exp-card reveal">
+      <div class="exp-top">
+        <span class="exp-title">Research Lead (Volunteer)</span>
+        <span class="exp-date">Jun 2026 – Present</span>
+      </div>
+      <div class="exp-org">Agentic Identity Guard · Community Dreams Foundation</div>
+      <ul class="exp-bullets">
+        <li>Authored a research proposal on verifying AI agent identity and authorization at the moment of action: six approaches compared against a 15-scenario evaluation suite, including deliberate failure cases.</li>
+        <li>Built the reference incident analysis from primary sources, separating documented fact from interpretation with a per-claim citation table.</li>
+      </ul>
     </div>
-    <div class="exp-org">IU RecSports, Indiana University Bloomington</div>
-    <ul class="exp-bullets">
-      <li>Led on-shift facility operations in a high-traffic environment, ensuring adherence to documented operational procedures and incident-response protocols.</li>
-      <li>Coordinated risk-management incidents and live evacuations via radio under time pressure, maintaining calm communication across multi-person teams.</li>
-    </ul>
+    <div class="exp-card reveal">
+      <div class="exp-top">
+        <span class="exp-title">Member Services Lead</span>
+        <span class="exp-date">Dec 2025 – May 2026</span>
+      </div>
+      <div class="exp-org">IU RecSports, Indiana University Bloomington</div>
+      <ul class="exp-bullets">
+        <li>Led on-shift facility operations in a high-traffic environment, ensuring adherence to documented operational procedures and incident-response protocols.</li>
+        <li>Coordinated risk-management incidents and live evacuations via radio under time pressure, maintaining calm communication across multi-person teams.</li>
+      </ul>
+    </div>
   </div>
 </section>
 
 <!-- PUBLICATION -->
 <section id="publication">
   <div class="section-header reveal">
-    <span class="section-num">06.</span>
+    <span class="section-num">07.</span>
     <h2 class="section-title">Publication</h2>
     <div class="section-line"></div>
   </div>
@@ -747,7 +887,7 @@
 <!-- EDUCATION -->
 <section id="education">
   <div class="section-header reveal">
-    <span class="section-num">07.</span>
+    <span class="section-num">08.</span>
     <h2 class="section-title">Education</h2>
     <div class="section-line"></div>
   </div>
@@ -781,8 +921,8 @@
     <div class="contact-label">// get in touch</div>
     <div class="contact-heading">Let's connect.</div>
     <p style="color:var(--muted2); max-width:440px; margin: 0 auto; font-size:14px;">
-      Open to Backend SWE, Implementation Engineer, and Forward-Deployed Engineer roles.
-      Indianapolis area, remote, or relocation.
+      Open to AI governance, model risk and data governance roles.
+      New York metro, hybrid, or relocation.
     </p>
     <div class="contact-links">
       <a class="btn btn-primary" href="mailto:ameyparle@gmail.com">ameyparle@gmail.com</a>
